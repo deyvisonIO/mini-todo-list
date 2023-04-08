@@ -183,6 +183,17 @@
   opacity: .75;
 }
 
+
+.header {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 5px;
+}
+
+.darkText {
+  color: #000;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {

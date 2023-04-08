@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { Tasks } from '@/components/Tasks'
 import { useSelector } from 'react-redux'
 import { selectTasks } from '@/redux/tasksSlice'
+import { Coins } from '@/components/Coins'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,10 +22,10 @@ export default function Home() {
         // TODO: change application icon
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <header className={styles.header}>
+        <Coins />
+      </header>
       <main className={styles.main}>
-        <div className={styles.center}>
-          // Number of coins
-        </div>
         <div className={inter.className}>
           // Input
           <AddTaskInput />
