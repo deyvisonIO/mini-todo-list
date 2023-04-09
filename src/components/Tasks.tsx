@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from '../styles/Home.module.css';
 import { useAppDispatch } from '@/redux/hooks';
 import { Task } from './Task';
+import { List } from '@mui/material';
 
 interface propsInterface {
   tasks: string[],
@@ -15,8 +16,8 @@ export function Tasks() {
   const dispatch = useAppDispatch();
 
   return (
-    <ul>
+    <List >
       { isTasksEmpty ?  null : tasks.map((task: string, index: number) => (<Task key={uuidv4()} task={task} index={index}/>))}
-    </ul>
+    </List>
   )
 }

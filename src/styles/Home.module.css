@@ -190,8 +190,16 @@
   padding: 5px;
 }
 
-.darkText {
+.coins {
   color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.addButton {
+  font-weight: bold;
 }
 
 /* Enable hover only on non-touch devices */

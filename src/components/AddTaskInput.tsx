@@ -3,6 +3,8 @@ import {
   addTask
 } from "../redux/tasksSlice"
 import { useAppDispatch } from "@/redux/hooks";
+import { Button, TextField } from "@mui/material";
+import styles from "../styles/Home.module.css";
 
 export function AddTaskInput() {
   const [newTask, setNewTask] = useState("");
@@ -17,11 +19,17 @@ export function AddTaskInput() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <TextField
+        label="Task"
+        variant="outlined"
+        size="small"
         value={newTask}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTask(e.target.value)}
-      ></input>
-      <button>ADD</button>
+      ></TextField>
+      <Button variant="contained" component="label" size="medium" className={styles.addButton}>
+        ADD
+        <button hidden></button>
+      </Button>
     </form>
   )
 }

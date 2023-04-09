@@ -9,7 +9,7 @@ export function Coins() {
   const dispatch = useDispatch();
 
   return (
-    <div onClick={() => dispatch(increment())} className={styles.darkText}>
+    <div onClick={() => dispatch(increment())} className={styles.coins}>
       <MonetizationOnTwoToneIcon />
       {coins}
     </div>

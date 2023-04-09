@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { editTask, removeTask } from '@/redux/tasksSlice';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
+import { Button, ListItem } from '@mui/material';
 
 interface propsInterface {
   task: string,
@@ -29,7 +30,7 @@ export function Task({ task, index }: propsInterface) {
   }
 
   return (
-    <li>
+    <ListItem >
       {isEditing ? 
         <form onSubmit={handleTaskSubmit}>
           <input 
@@ -41,15 +42,16 @@ export function Task({ task, index }: propsInterface) {
         <p>{task}</p>
       }
       {isEditing ? null :
-        <button 
-          className={styles.button}
+        <Button variant="contained" color="secondary" onClick={changeEditingState}> EDIT </Button>
+      }
+      {isEditing ? null :
+        <Button
           onClick={() => dispatch(removeTask({index}))}
+          variant="contained"
+          color="error"
         >
           X 
-        </button>}
-      {isEditing ? null :
-        <button className={styles.button} onClick={changeEditingState}> EDIT </button>
-      }
-    </li>
+        </Button>}
+    </ListItem>
   );
 }
