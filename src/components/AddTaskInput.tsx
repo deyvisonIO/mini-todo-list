@@ -26,9 +26,8 @@ export function AddTaskInput() {
         value={newTask}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTask(e.target.value)}
       ></TextField>
-      <Button variant="contained" component="label" size="medium" className={styles.addButton}>
+      <Button variant="contained" type="submit"  size="medium" className={styles.addButton}>
         ADD
-        <button hidden></button>
       </Button>
     </form>
   )

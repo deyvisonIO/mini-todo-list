@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { editTask, removeTask } from '@/redux/tasksSlice';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
-import { Button, ListItem } from '@mui/material';
+import { Button, ListItem, ListItemSecondaryAction } from '@mui/material';
 
 interface propsInterface {
   task: string,
@@ -20,6 +20,8 @@ export function Task({ task, index }: propsInterface) {
   }
 
   function handleTaskSubmit(e: React.FormEvent<HTMLFormElement>): undefined {
+    console.log("submitting... ")
+    e.preventDefault();
     const payload = {
       index,
       newTask
@@ -30,17 +32,20 @@ export function Task({ task, index }: propsInterface) {
   }
 
   return (
-    <ListItem >
+    <ListItem className={styles.listItem}>
       {isEditing ? 
-        <form onSubmit={handleTaskSubmit}>
+        <form onSubmit={handleTaskSubmit} className={styles.listItem}>
           <input 
             value={newTask}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTask(e.target.value)}
           ></input>
-          <button className={styles.button}>Confirm</button>
+        <Button variant="contained" color="secondary" type="submit"> 
+          Confirm
+        </Button>
         </form> : 
         <p>{task}</p>
       }
+      <ListItemSecondaryAction className={styles.listButtons}>
       {isEditing ? null :
         <Button variant="contained" color="secondary" onClick={changeEditingState}> EDIT </Button>
       }
@@ -52,6 +57,7 @@ export function Task({ task, index }: propsInterface) {
         >
           X 
         </Button>}
+      </ListItemSecondaryAction>
     </ListItem>
   );
 }

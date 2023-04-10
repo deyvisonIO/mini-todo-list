@@ -16,7 +16,7 @@ export function Tasks() {
   const dispatch = useAppDispatch();
 
   return (
-    <List >
+    <List className={styles.w100}>
       { isTasksEmpty ?  null : tasks.map((task: string, index: number) => (<Task key={uuidv4()} task={task} index={index}/>))}
     </List>
   )

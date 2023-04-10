@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem;
+  padding: 2rem 0;
   min-height: 100vh;
 }
 
@@ -200,6 +200,34 @@
 
 .addButton {
   font-weight: bold;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.listDiv{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.listItem {
+  padding: 1rem 1rem;
+  display: flex;
+  justify-items: space-between;
+  box-shadow: 15px -5px 42px -16px #BCBCBC;
+  border-radius: 5px;
+  min-width: 100%;
+  color: #000;
+}
+
+.listButtons {
+  display: flex;
+  gap: 1rem;
 }
 
 /* Enable hover only on non-touch devices */

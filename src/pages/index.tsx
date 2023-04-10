@@ -19,17 +19,14 @@ export default function Home() {
       <Head>
         <title>Mini Todo List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        // TODO: change application icon
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className={styles.header}>
         <Coins />
       </header>
       <main className={styles.main}>
-        <div className={inter.className}>
-          // Input
+        <div className={`${inter.className} ${styles.listDiv}`}>
           <AddTaskInput />
-          // Tasks List
           <Tasks /> 
         </div>
       </main>
