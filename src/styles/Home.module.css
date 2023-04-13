@@ -215,20 +215,21 @@
   gap: 1rem;
 }
 
-.listItem {
-  padding: 1rem 1rem;
-  display: flex;
-  justify-items: space-between;
-  box-shadow: 15px -5px 42px -16px #BCBCBC;
-  border-radius: 5px;
-  min-width: 100%;
-  color: #000;
-}
+/* .listitem { */
+/*   padding: 1rem 1rem; */
+/*   display: flex; */
+/*   justify-items: space-between; */
+/*   box-shadow: 15px -5px 42px -16px #bcbcbc; */
+/*   border-radius: 5px; */
+/*   min-width: 100%; */
+/*   color: #000; */
+/* } */
 
 .listButtons {
   display: flex;
   gap: 1rem;
 }
+
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {

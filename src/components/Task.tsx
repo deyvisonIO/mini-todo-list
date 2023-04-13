@@ -2,7 +2,9 @@ import { useDispatch } from 'react-redux';
 import { editTask, removeTask } from '@/redux/tasksSlice';
 import styles from '../styles/Home.module.css';
 import { useState } from 'react';
-import { Button, ListItem, ListItemSecondaryAction } from '@mui/material';
+import { Button, Checkbox, ListItem, ListItemButton, ListItemIcon, ListItemSecondaryAction, ListItemText } from '@mui/material';
+import { removeListener } from 'process';
+import { increment } from '@/redux/coinsSlice';
 
 interface propsInterface {
   task: string,
@@ -31,8 +33,20 @@ export function Task({ task, index }: propsInterface) {
     return;
   }
 
+  function completeTask() { 
+    dispatch(removeTask({
+      index,
+    }));
+    dispatch(increment());
+  }
+
   return (
     <ListItem className={styles.listItem}>
+      <ListItemButton role={undefined} dense>
+        <ListItemIcon>
+          <Checkbox edge="start" tabIndex={-1} disableRipple onChange={() => setTimeout(completeTask, 200)} />
+        </ListItemIcon>
+      <ListItemText>
       {isEditing ? 
         <form onSubmit={handleTaskSubmit} className={styles.listItem}>
           <input 
@@ -43,8 +57,9 @@ export function Task({ task, index }: propsInterface) {
           Confirm
         </Button>
         </form> : 
-        <p>{task}</p>
-      }
+        <p >{task}</p>
+      }</ListItemText>
+      </ListItemButton>
       <ListItemSecondaryAction className={styles.listButtons}>
       {isEditing ? null :
         <Button variant="contained" color="secondary" onClick={changeEditingState}> EDIT </Button>

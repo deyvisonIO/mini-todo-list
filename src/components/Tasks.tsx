@@ -6,14 +6,10 @@ import { useAppDispatch } from '@/redux/hooks';
 import { Task } from './Task';
 import { List } from '@mui/material';
 
-interface propsInterface {
-  tasks: string[],
-}
 
 export function Tasks() {
   const tasks = useSelector(selectTasks);
   const isTasksEmpty: boolean = tasks === undefined || tasks.length === 0 ? true : false;  
-  const dispatch = useAppDispatch();
 
   return (
     <List className={styles.w100}>
